@@ -1,8 +1,8 @@
 ﻿import React, { Component } from 'react';
-import  AddProduct  from './AddProduct';
-import  DeleteProduct  from './DeleteProduct';
-import  UpdateProduct  from './UpdateProduct';
-import  GenerateReport  from './GenerateReport';
+import  AddProduct  from './Admin/AddProduct';
+import  DeleteProduct  from './Admin/DeleteProduct';
+import  UpdateProduct  from './Admin/UpdateProduct';
+import  GenerateReport  from './Admin/GenerateReport';
 import Button from 'react-bootstrap/esm/Button';
 import Alert from "react-bootstrap/Alert";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -24,7 +24,7 @@ function ProductAdmin(props) {
                 <Card.Body>
                     <Card.Title>Add  Product</Card.Title>
                     <Card.Text>
-                        <AddProduct />
+                        <AddProduct props={props}/>
                     </Card.Text>
                 </Card.Body>
                 </Card>
@@ -35,7 +35,7 @@ function ProductAdmin(props) {
             <Card.Body>
                 <Card.Title>Delete Product</Card.Title>
                 <Card.Text>
-                    <DeleteProduct />
+                    <DeleteProduct props={props}/>
                 </Card.Text>
             </Card.Body>
         </Card>
@@ -44,9 +44,9 @@ function ProductAdmin(props) {
         <Card >
     
       <Card.Body>
-        <Card.Title>Update Report</Card.Title>
+        <Card.Title>Update Product</Card.Title>
         <Card.Text>
-        <UpdateProduct />
+        <UpdateProduct props={props}/>
         </Card.Text>
       </Card.Body>
     </Card>
@@ -57,7 +57,7 @@ function ProductAdmin(props) {
       <Card.Body>
         <Card.Title>Generate Report</Card.Title>
         <Card.Text>
-        <GenerateReport />
+        <GenerateReport props={props} />
         </Card.Text>
         
       </Card.Body>
