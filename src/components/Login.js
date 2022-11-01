@@ -1,6 +1,5 @@
 import axios from 'axios';
-import React, { Component, useEffect, useState } from 'react';
-import {Routes, Route, Navigate, BrowserRouter} from 'react-router-dom';
+import React, {  useState } from 'react';
 import ProductAdmin from './ProductAdmin';
 import ProductUser from './ProductUser';
 import Button from 'react-bootstrap/Button';

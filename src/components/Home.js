@@ -11,10 +11,6 @@ function Home () {
         
 
               <Login/>
-       
-           
-         
-            {/* <div style={{ display: (this.state.showRegister ? 'block' : 'hide') }} className="" id="show-register"> */}
            <Register/>
         </div>
     );

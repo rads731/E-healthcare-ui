@@ -1,11 +1,7 @@
 ﻿import React, { Component } from 'react';
-import  AddProduct  from './AddProduct';
-import  DeleteProduct  from './DeleteProduct';
-import  UpdateReport  from './UpdateReport';
-import  GenerateReport  from './GenerateReport';
 import Button from 'react-bootstrap/esm/Button';
 import Alert from "react-bootstrap/Alert";
-import {BrowserRouter as Router, Link, NavLink, Redirect, Route } from "react-router-dom";
+import ViewMedicine from './Users/Cart/ViewMedicine';
 
 function ProductUser(props) {
     //const [loginResponse,setLoginResponse] = useState(Object);
@@ -15,7 +11,7 @@ function ProductUser(props) {
                 
                 <Alert variant="success">
                     <Alert.Heading>
-                        Hello {props} ! Welcome 
+                        Hello  ! Welcome 
                     </Alert.Heading>
                 </Alert>
 
@@ -23,7 +19,7 @@ function ProductUser(props) {
                
               
        
-                
+                <ViewMedicine props={props.loginResponse}/>
             </div>
         )
     
