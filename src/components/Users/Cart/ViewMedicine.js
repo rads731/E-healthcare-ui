@@ -36,7 +36,7 @@ function ViewMedicine(props) {
         })
     }
 
-    var addMedicince = () => {
+    var addMedicine = () => {
            var id = document.getElementById('id')
         axios.post(`https://localhost:5001/api/Cart/Add/`,
         {
@@ -56,7 +56,21 @@ function ViewMedicine(props) {
     }
 
     var deleteMedicine = () => {
-
+        var id = document.getElementById('id')
+        axios.post(`https://localhost:5001/api/Cart/Delete/`,
+        {
+            "productId":id,
+        },
+        axiosConfig)
+        .then(response=>{
+            console.log(response);
+            if(response!==null && response.data!==null && response.data.length>0){
+                 setMedicine(response.data);
+            }
+        })
+        .catch(error=>{
+           console.log(error)
+        })
     }
    useEffect=(()=>renderDetail,[person])
 
@@ -92,7 +106,8 @@ function ViewMedicine(props) {
                   <td id="uses">{obj.Uses}</td>
                   <td id="ExpiryDate">{obj.ExpiryDate}</td>
                   <td>
-                     <button type="button" onClick={addMedicince} className="btn btn-primary btn-block mb-4">Select</button>
+                     <button type="button" onClick={addMedicine} className="btn btn-primary btn-block mb-4">Select</button>
+                     <button type="button" onClick={deleteMedicine} className="btn btn-primary btn-block mb-4">Select</button>
                   </td>
                 </tr>
             })
@@ -105,7 +120,7 @@ function ViewMedicine(props) {
 
     </div>
     <div>
-    <Checkout/>
+    <Checkout Medicine={Medicine}/>
     </div>
     </div>
    )

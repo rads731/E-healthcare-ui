@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import  AddProduct  from './AddProduct';
 import  DeleteProduct  from './DeleteProduct';
-import  UpdateReport  from './UpdateReport';
+import  UpdateProduct  from './UpdateProduct';
 import  GenerateReport  from './GenerateReport';
 import Button from 'react-bootstrap/esm/Button';
 import Alert from "react-bootstrap/Alert";
@@ -46,7 +46,7 @@ function ProductAdmin(props) {
       <Card.Body>
         <Card.Title>Update Report</Card.Title>
         <Card.Text>
-        <UpdateReport />
+        <UpdateProduct />
         </Card.Text>
       </Card.Body>
     </Card>

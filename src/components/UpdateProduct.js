@@ -1,9 +1,9 @@
 ﻿import React, { Component } from 'react';
 
-function UpdateReport(){
+function UpdateProduct(){
     
         return (
-            <div className="update-report">
+            <div className="container-fluid">
                 <form>
                     <p>
                         <label>Name : <input type="text" id="name" /></label>
@@ -38,4 +38,4 @@ function UpdateReport(){
         );
     }
 
-export default UpdateReport;
+export default UpdateProduct;

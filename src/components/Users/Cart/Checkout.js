@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-function Checkout() {
-
+function Checkout(props) {
+  
+    return {
+        
+    }
 }
 export default Checkout;
