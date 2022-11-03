@@ -42,7 +42,9 @@ function DeleteProduct()  {
                     <input type="text" id="id" onChange={handleId} value={Id} />
                 </p>
 
-
+                <p>
+                        <button type="button" onClick={deleteProduct} className="btn btn-primary btn-block mb-4">Add Medicine</button>
+                    </p>
                
             </form>
         </div>

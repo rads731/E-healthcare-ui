@@ -2,6 +2,7 @@
 import Button from 'react-bootstrap/esm/Button';
 import Alert from "react-bootstrap/Alert";
 import ViewMedicine from './Users/Cart/ViewMedicine';
+import Funds from './Users/Funds';
 
 function ProductUser(props) {
     //const [loginResponse,setLoginResponse] = useState(Object);
@@ -16,10 +17,9 @@ function ProductUser(props) {
                 </Alert>
 
                
-               
-              
-       
+                
                 <ViewMedicine props={props.loginResponse}/>
+                <Funds props={props.loginResponse}/>
             </div>
         )
     
