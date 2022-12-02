@@ -4,6 +4,7 @@ import ProductAdmin from './ProductAdmin';
 import ProductUser from './ProductUser';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 function Login () {
     const [Email, setEmail] =useState('');
@@ -12,6 +13,14 @@ function Login () {
     const [redirectAdminPage, setRedirectAdminPage] = useState(false);
     const [redirectUserPage, setRedirectUserPage] = useState(false);
     const [loginResponse,setLoginResponse] = useState({});
+    const [show, setShow] = useState(false);
+    const handleClose = () => {
+        setShow(false);
+    }
+    const handleShow = () => {
+        setShow(true);
+    }
+
     const handleEmail = (e) =>{
         setEmail(e.target.value);
     }
@@ -55,45 +64,64 @@ function Login () {
     
     return (
         <div  className="container-fluid" id="show-login">
+            <Button variant="primary" onClick={handleShow}>
+               Click here to login!
+            </Button>
+            <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Enter your info to login!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
         <Form>
           
-            <Form.Group  controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" onChange={handleEmail} value={Email} 
-                 placeholder="Enter email" />
-                 <br/>
-                <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                </Form.Text>
-            </Form.Group>
+          <Form.Group  controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" onChange={handleEmail} value={Email} 
+               placeholder="Enter email" />
+               <br/>
+              <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+              </Form.Text>
+          </Form.Group>
+       
+
+          
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+              <Form.Control onChange={handlePassword} type="password" value={Password}  />
+          </Form.Group> 
          
 
-            
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-                <Form.Control onChange={handlePassword} type="password" value={Password}  />
-            </Form.Group> 
-           
+          <div>
+            Select your user type below <br/>
+          <input onChange={handleType} type="radio" id="admin" name="type" value={Type} />
+          <label htmlFor="admin">Admin</label>
+          <br/>
+          <input onChange={handleType} type ="radio" id="user" name="type" value={Type}/>
+          <label htmlFor="user">User</label>
+          </div>
 
-            <div>
-            <input onChange={handleType} type="radio" id="admin" name="type" value={Type} />
-            <label htmlFor="admin">Admin</label>
-            <input onChange={handleType} type ="radio" id="user" name="type" value={Type}/>
-            <label htmlFor="user">User</label>
-            </div>
-
-            <button type="button" onClick={loginCall} className="btn btn-primary btn-block mb-4">Sign in</button>
-        
-                {
-                    redirectAdminPage && 
-                    <ProductAdmin loginResponse={loginResponse}/>
-                }
-                {
-                    redirectUserPage &&
-                    <ProductUser loginResponse={loginResponse} />
-                }
+          <button type="button" onClick={loginCall} className="btn btn-primary btn-block mb-4">Sign in</button>
+      
+              {
+                  redirectAdminPage && 
+                  <ProductAdmin loginResponse={loginResponse}/>
+              }
+              {
+                  redirectUserPage &&
+                  <ProductUser loginResponse={loginResponse} />
+              }
+       
+      </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
          
-        </Form>
+        </Modal.Footer>
+      </Modal>
+       
     </div> 
     )
 }

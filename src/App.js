@@ -12,11 +12,14 @@ import Home from './components/Home';
 function App() {
   return (
     <div className="App">
-         <h1>E-healthcare Portal</h1>
-            <p>Welcome to E-healthcare Portal</p>
-            <p>Please login by clicking on any one</p>
+         <h1>ABC Healthcare</h1>
+            <p>
+              <strong>
+              To have a secure tour, please sign in or sign up
+              </strong>
+       
           <Home/>
-      
+          </p>
     </div>
   );
 }
