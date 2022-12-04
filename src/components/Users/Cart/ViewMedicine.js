@@ -1,12 +1,18 @@
 import React, { useEffect,useState,useMemo } from 'react';
-import Table from 'react-bootstrap/Table';
+import { Table, Button, Modal, Form}  from 'react-bootstrap';
 import Checkout from './Checkout';
 import axios from 'axios';
 import OrderStatus from '../OrderStatus';
+import Alert from "react-bootstrap/Alert";
+import Search from '../Search';
 
-function ViewMedicine(props) {
+function ViewMedicine() {
     const [Medicine,setMedicine] = useState([]);
-   
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => {
+        setShow(false);
+    }
     let axiosConfig = {
         headers: {
             'Content-Type': 'application/json;charset=UTF-8',
@@ -35,7 +41,7 @@ function ViewMedicine(props) {
         axios.post(`https://localhost:5001/api/Cart/Add/`,
         {
             "productId":id,
-            "userId":props.ID
+            "userId":78//props.ID
         },
         axiosConfig)
         .then(response=>{
@@ -71,6 +77,10 @@ function ViewMedicine(props) {
 
    return(
     <div className='container-md'>
+      <div>
+        <Search/>
+
+      </div>
         <div>
         <Table striped="columns">
       <thead>
@@ -83,11 +93,56 @@ function ViewMedicine(props) {
           <th>Image URL</th>
           <th>Uses</th>
           <th>Expiry Date</th>
-          <th>Select Medicines</th>
+          <th>(De)Select Medicines</th>
         </tr>
       </thead>
+    
       <tbody>
-        {
+        <tr>
+          <td>1</td>
+          <td>Med 1</td>
+          <td>Comp 1</td>
+          <td>100</td>
+          <td>1</td>
+          <td>-</td>
+          <td>Used in Fever</td>
+          <td>01-11-2023</td>
+          <td>
+                     <button type="button" onClick={addMedicine} className="btn btn-primary btn-block mb-4">Select</button> &nbsp;
+                     <button type="button" onClick={deleteMedicine} className="btn btn-danger btn-block mb-4" disabled>DeSelect</button>
+                  </td>
+          
+        </tr>
+        <tr>
+        <td>2</td>
+          <td>Med 2</td>
+          <td>Comp 1</td>
+          <td>140</td>
+          <td>4</td>
+          <td>-</td>
+          <td>Used in Viral</td>
+          <td>01-01-2024</td>
+          <td>
+                     <button type="button" onClick={addMedicine} className="btn btn-primary btn-block mb-4">Select</button> &nbsp;
+                     <button type="button" onClick={deleteMedicine} className="btn btn-danger btn-block mb-4" disabled>DeSelect</button>
+                  </td>
+        </tr>
+        <tr>
+        <td>3</td>
+          <td>Med 3</td>
+          <td>Comp 3</td>
+          <td>324</td>
+          <td>6</td>
+          <td>-</td>
+          <td>Used in Malaria</td>
+          <td>09-06-2023</td>
+          <td>
+                     <button type="button" onClick={addMedicine} className="btn btn-primary btn-block mb-4" disabled>Select</button> &nbsp;
+                     <button type="button" onClick={deleteMedicine} className="btn btn-danger btn-block mb-4">DeSelect</button>
+                  </td>
+        </tr>
+      </tbody>
+        {/* {
             Medicine.map((obj, index)=>{
                 <tr data-index={index}>
                 <td> <span id="id">{index}</span>
@@ -105,20 +160,34 @@ function ViewMedicine(props) {
                   </td>
                 </tr>
             })
-        }
+        } */}
        
-      </tbody>
+      
     </Table>
+    
+    
+   
     </div>
     <div>
 
     </div>
     <div>
-    <Checkout Medicine={Medicine}/>
+    <Button variant="primary" onClick={handleShow}>
+      Checkout to place an order
+      
+    </Button>
+    <Button variant="primary" onClick={handleShow}>
+      View your Order's Status
+      
+    </Button>
+     
+           
+    {/* <Checkout/>  <Checkout Medicine={Medicine}/> */}
     </div>
 
     <div>
-    <OrderStatus props={props}/>
+    {/* <OrderStatus/> */}
+    {/* <OrderStatus props={props}/> */}
     </div>
     </div>
    )

@@ -6,20 +6,26 @@ import Funds from './Users/Funds';
 
 function ProductUser(props) {
     //const [loginResponse,setLoginResponse] = useState(Object);
-    console.log(props)
+   // console.log(props)
         return (
             <div className="container-fluid">
-                
-                <Alert variant="success">
-                    <Alert.Heading>
-                        Hello  ! Welcome 
-                    </Alert.Heading>
-                </Alert>
-
+                <div>
+                    <br/><br/>
+                {
                
+               ['success'].map((variant) => (
+                   <Alert key={variant} variant={variant}>
+                   Welcome to your account!
+                   </Alert>
+                 ))
+              }
                 
-                <ViewMedicine props={props.loginResponse}/>
-                <Funds props={props.loginResponse}/>
+              </div>
+              <br/>
+                <div>
+                 <ViewMedicine /> 
+                 {/* <Funds/>   */}
+                </div>
             </div>
         )
     

@@ -5,6 +5,7 @@ import ProductUser from './ProductUser';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import Alert from 'react-bootstrap/Alert';
 
 function Register () {
     const [FirstName, setFiirstName] = useState('');
@@ -16,6 +17,7 @@ function Register () {
     const [Address,setAddress] = useState('');
     const [redirectUserPage, setRedirectUserPage] = useState(false);
     const [show, setShow] = useState(false);
+
     const handleClose = () => {
         setShow(false);
     }
@@ -85,8 +87,21 @@ function Register () {
           <Modal.Title>Enter your info to sign up!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        {/* {
+                ['warning'].map((variant) => (
+                    <Alert key={variant} variant={variant}>
+                     Fill in the values of  all the fields
+                    </Alert>
+                  )) */
+                ['danger'].map((variant) => (
+                    <Alert key={variant} variant={variant}>
+                     Enter correct information to register
+                    </Alert>
+                  ))
+              } 
         <form>
         <div className="form-outline mb-4">
+
                                       <label className="form-label" htmlFor="registerFirstName">First Name</label>
                                       <input onChange={handleFirstName} type="text" id="registerFirstName" value={FirstName} className="form-control" />
                                      
@@ -105,7 +120,7 @@ function Register () {
                                   </div>
 
                                   <div className="form-outline mb-4">
-                                      <label className="form-label" htmlFor="registerPassword">Password</label>
+                                      <label className="form-label" htmlFor="registerPassword" required >Password</label>
                                       <input onChange={handlePassword} type="password" id="registerPassword" value={Password} className="form-control" />
                                       
                                   </div>
@@ -116,7 +131,7 @@ function Register () {
                                   </div>
 
                                   <div className="form-outline mb-4">
-                                      <label className="form-label" htmlFor="registerPhone" value={Phone}>Phone</label>
+                                      <label className="form-label" htmlFor="registerPhone" required value={Phone}>Phone</label>
                                       <input onChange={handlePhone} type="number" id="registerPhone" className="form-control" maxLength="10" />
                                   </div>
 

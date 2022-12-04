@@ -5,6 +5,7 @@ import ProductUser from './ProductUser';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import Alert from 'react-bootstrap/Alert';
 
 function Login () {
     const [Email, setEmail] =useState('');
@@ -72,6 +73,14 @@ function Login () {
           <Modal.Title>Enter your info to login!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        {/* {
+               
+               ['danger'].map((variant) => (
+                   <Alert key={variant} variant={variant}>
+                    Enter correct login information
+                   </Alert>
+                 ))
+              } */}
         <Form>
           
           <Form.Group  controlId="formBasicEmail">

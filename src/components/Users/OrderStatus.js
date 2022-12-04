@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import Table from 'react-bootstrap/Table';
+import {Table,Alert} from 'react-bootstrap';
 import axios from 'axios';
 
 function OrderStatus(props) {
@@ -36,24 +36,45 @@ function OrderStatus(props) {
        return(
         <div className='container-fluid'>
             <div onLoad={renderDetail}>
+              <br/><br/>
+              {
+              ['success'].map((variant) => (
+                   <Alert key={variant} variant={variant}>
+                        View your orders' information below!    
+                   </Alert>
+                 ))
+              }
             <Table striped="columns">
           <thead>
             <tr>
                 <th>Order Placement Date</th>
+                <th>Product Name</th>
                 <th>Total Amount</th>
-             
+                <th>Order Status</th>
             </tr>
           </thead>
           <tbody>
-            {
+            {/* {
                 Order.map((obj, index)=>{
                     <tr data-index={index}>
                         <td id="order-date">{obj[index].PlacedOn}</td>
                         <td id="total-amount">{obj[index].TotalAmount}</td>
                     </tr>
                 })
-            }
-           
+            } */}
+           <tr>
+               <td>1st Dec, 2022</td>
+               <td>Crocin</td>
+               <td>$12,322.00</td>
+               <td>Shipped</td>
+           </tr>
+
+           <tr>
+               <td>22nd Nov, 2022</td>
+               <td>Roxid</td>
+               <td>$45,432.00</td>
+               <td>Delivered</td>
+           </tr>
           </tbody>
         </Table>
         </div>
