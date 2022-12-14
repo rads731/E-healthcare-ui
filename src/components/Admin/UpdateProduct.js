@@ -85,8 +85,9 @@ function UpdateProduct(){
                     </p>
 
                     <p>
-                        <label>ImageUrl:</label> <input type="text" onChange={handleImageUrl} 
-                        value={ImageUrl} id="imageurl" />
+                        <label>ImageUrl:</label> 
+                        <input type="file" id="myFile" name="filename"/>
+                        
                     </p>
 
                     <p>
@@ -95,7 +96,7 @@ function UpdateProduct(){
                     </p>
 
                     <p>
-                        <button type="button" onClick={addProduct} className="btn btn-primary btn-block mb-4">Add Medicine</button>
+                        <button type="button" onClick={addProduct} className="btn btn-primary mb-4">Update Medicine</button>
                     </p>
                 </form>
             </div>

@@ -64,13 +64,13 @@ function AddProduct (props) {
             <div className="md-4">
                 <form>
                     <p>
-                        <label>Name : </label>
+                        <label>Name : &nbsp;</label>
                         <input type="text" id="name" onChange={handleName} value={Name} />
                     </p>
 
 
                     <p>
-                        <label>Medicine Company :</label> <input type="text" 
+                        <label>Medicine Company :&nbsp;</label> <input type="text" 
                         id="medicineName" onChange={handleCompany} value={CompanyName}/>
                     </p>
 
@@ -80,22 +80,22 @@ function AddProduct (props) {
                     </p>
 
                     <p>
-                        <label>Quantity</label> 
+                        <label>Quantity: &nbsp;</label> 
                         <input type="number" id="quantity" onChange={handleQuantity} value={Quantity} min="0"  />
                     </p>
 
                     <p>
-                        <label>ImageUrl:</label> <input type="text" onChange={handleImageUrl} 
+                        <label>ImageUrl:&nbsp;</label> <input type="file" onChange={handleImageUrl} 
                         value={ImageUrl} id="imageurl" />
                     </p>
 
                     <p>
-                    <label> Expire Date</label>
+                    <label> Expire Date: &nbsp;</label>
                             <input type="date" id="expiredate" onChange={handleExpireDate} value={ExpireDate}  />
                     </p>
 
                     <p>
-                        <button type="button" onClick={addProduct} className="btn btn-primary btn-block mb-4">Add Medicine</button>
+                        <button type="button" onClick={addProduct} className="btn btn-primary mb-4">Add Medicine</button>
                     </p>
                 </form>
             </div>

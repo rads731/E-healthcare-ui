@@ -12,10 +12,10 @@ function ProductAdmin(props) {
         console.log(props)
         return (
             <div className="container-fluid">
-                
+                <br/><br/>
                 <Alert variant="success">
                     <Alert.Heading>
-                        Hello ! Welcome 
+                        Hello ! Welcome Admin
                     </Alert.Heading>
                 </Alert>
                <div className='md-6'>
@@ -30,7 +30,7 @@ function ProductAdmin(props) {
                 </Card>
                 </div>
                 <div className='md-6'>
-        <Card >
+        {/* <Card >
           
             <Card.Body>
                 <Card.Title>Delete Product</Card.Title>
@@ -38,9 +38,9 @@ function ProductAdmin(props) {
                     <DeleteProduct props={props}/>
                 </Card.Text>
             </Card.Body>
-        </Card>
+        </Card> */}
         </div>
-        <div className='md-6'>
+        {/* <div className='md-6'>
         <Card >
     
       <Card.Body>
@@ -50,8 +50,8 @@ function ProductAdmin(props) {
         </Card.Text>
       </Card.Body>
     </Card>
-    </div>
-    <div className='md-6'>
+    </div> */}
+    {/* <div className='md-6'>
         <Card >
 
       <Card.Body>
@@ -62,7 +62,7 @@ function ProductAdmin(props) {
         
       </Card.Body>
     </Card>
-    </div>
+    </div> */}
             </div>
         );
     }

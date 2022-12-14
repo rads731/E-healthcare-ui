@@ -38,12 +38,12 @@ function DeleteProduct()  {
             <div className="md-4">
             <form>
                 <p>
-                    <label>Id : </label>
+                    <label>Name : &nbsp;</label>
                     <input type="text" id="id" onChange={handleId} value={Id} />
                 </p>
 
                 <p>
-                        <button type="button" onClick={deleteProduct} className="btn btn-primary btn-block mb-4">Add Medicine</button>
+                        <button type="button" onClick={deleteProduct} className="btn btn-primary mb-4">Delete Medicine</button>
                     </p>
                
             </form>
